@@ -51,5 +51,5 @@ export class EmployeeComponent implements OnInit {
     this.resetForm(form);
   }
 
-  
+
 }
