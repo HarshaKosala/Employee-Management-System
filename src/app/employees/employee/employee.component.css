@@ -1,0 +1,10 @@
+form.emp-form{
+    background-color: antiquewhite;
+    border-radius: 4px;
+    padding: 10px;
+    padding-bottom: 55px;
+}
+
+input.ng-invalid.ng-dirty{
+    border: 1px solid red;
+}

@@ -1,0 +1,8 @@
+<table class="table table-striped">
+    <tr *ngFor="let employee of employeeList" (click)="onClickEmployee(employee)">
+        <th scope="row">{{employee.Name}}</th>
+        <td>{{employee.Position}}</td>
+        <td>{{employee.Office}}</td>
+      </tr>
+</table>
+
