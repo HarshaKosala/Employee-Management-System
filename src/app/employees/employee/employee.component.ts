@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-
+  //bsValue = new Date();
   constructor(private service : EmployeeService,
               private toastr: ToastrService) { }
 
@@ -18,11 +18,12 @@ export class EmployeeComponent implements OnInit {
   }
 
   onSubmit(form : NgForm){  
-    //alert(form.value.$key);
+    //alert(form.value.DoB);
     if(form.value.$key==null){
       this.service.addEmployee(form.value);
       this.toastr.success('Record Added Successfuly','Add Employee');
     }else{
+      //alert(form.value.DoB);
       this.service.updateEmployee(form.value);
       this.toastr.success('Record Update Succesfully', 'Update Employee');
     }
@@ -30,6 +31,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   resetForm(form?: NgForm){
+    console.log(form.value);
     if(form!=null){
       form.reset();
     }else{
@@ -38,16 +40,18 @@ export class EmployeeComponent implements OnInit {
         Name : '',
         Position : '',
         Office : '',
-        Salary : 0
+        Salary : 0,
+        DoB : new Date(),
+        NIC : '',
+        Email : ''
       }
     }
   }
   deleteEmployee(form : NgForm){
-    if(confirm('Are You Sure to Delete this Record ?')==true){
-      this.service.deleteEmployee(form.value.$key);
-      this.toastr.warning('Record Deleted Successfuly', 'Delete Employee');
-    }
     
+    this.service.deleteEmployee(form.value.$key);
+    this.toastr.warning('Record Deleted Successfuly', 'Delete Employee');
+   
     this.resetForm(form);
   }
 

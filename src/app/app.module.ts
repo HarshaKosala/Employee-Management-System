@@ -6,7 +6,13 @@ import {FormsModule} from '@angular/forms';
 import {ToastrModule} from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import {PopupModule} from 'ng2-opd-popup';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+//import {DatepickerModule} from 'ngx-date-picker';
+import {MatTableModule, MatFormFieldModule, MatPaginatorModule,MatInputModule } from '@angular/material';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { PaginationModule } from 'ngx-bootstrap';
+import { NgProgressModule } from 'ngx-progressbar';
 
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './employees/employees.component';
@@ -33,7 +39,16 @@ import { environment } from '../environments/environment';
     CommonModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    //PopupModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    //DatepickerModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule,
+    PaginationModule.forRoot(),
+    NgProgressModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
 div.back{
-    background-image: url('https://www.sawtooth.org/wp-content/themes/sawtooth/assets/img/square_vignette.png'); 
- 
+    /* background-image: url('https://www.sawtooth.org/wp-content/themes/sawtooth/assets/img/square_vignette.png');  */
+    background-color: rgb(209, 194, 223) !important;
 }

@@ -8,3 +8,10 @@ form.emp-form{
 input.ng-invalid.ng-dirty{
     border: 1px solid red;
 }
+
+button.btn-reset{
+    margin-left: 5px;
+}
+button.btn-delete{
+    margin-left: 5px;
+}

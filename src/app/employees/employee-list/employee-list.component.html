@@ -1,8 +1,62 @@
-<table class="table table-striped">
-    <tr *ngFor="let employee of employeeList" (click)="onClickEmployee(employee)">
+<ng-progress [color]="'brown'"></ng-progress>
+<div class="form-group" style="width: 50%; float: right">
+    <input type="text" class="form-control" placeholder="Filter" [(ngModel)]="term"> 
+</div>
+<table id="example" class="table table-striped">
+    <tr *ngFor="let employee of employeeList | filter:term | paginate: { id: 'foo',
+                                                                        itemsPerPage: 5,
+                                                                        currentPage: page}" 
+                                                                        (click)="onClickEmployee(employee)">
         <th scope="row">{{employee.Name}}</th>
         <td>{{employee.Position}}</td>
         <td>{{employee.Office}}</td>
       </tr>
 </table>
+<div class="form-group" style="width: 75%; float: right">
+    <pagination-controls *ngIf="paginationStart" id="foo"
+                        (pageChange)="page = $event"
+                        maxSize="9"
+                        directionLinks="true"
+                        autoHide="false"
+                        previousLabel="Previous"
+                        nextLabel="Next"
+                        screenReaderPaginationLabel="Pagination"
+                        screenReaderPageLabel="page"
+                        screenReaderCurrentLabel="You're on page">
+    </pagination-controls>
+
+</div>
+
+<!-- <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- ID Column -->
+      <!-- <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.Name}} </td>
+      </ng-container> -->
+  
+      <!-- Progress Column -->
+      <!-- <ng-container matColumnDef="progress">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>
+        <td mat-cell *matCellDef="let row"> {{row.Position}}% </td>
+      </ng-container> -->
+  
+      <!-- Name Column -->
+      <!-- <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.Office}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div> -->
 

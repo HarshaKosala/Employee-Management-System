@@ -4,5 +4,7 @@ export class Employee {
     Position : string;
     Office : string;
     Salary : number;
-
+    DoB : Date;
+    NIC : string;
+    Email : string;
 }
